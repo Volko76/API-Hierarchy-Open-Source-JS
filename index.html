@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>API hierarchy</title>
+	<script data-require="d3@3.4.6" data-semver="3.4.6"
+		src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.min.js"></script>
+	<script src="https://unpkg.com/@hpcc-js/wasm/dist/graphviz.umd.js" charset="UTF-8"
+		type="javascript/worker"></script>
+	<script src="js/d3.min.js" charset="UTF-8" type="text/javascript"></script>
+	<script src="js/d3-graphviz.min.js" charset="UTF-8" type="text/javascript"></script>
+	<script src="js/animations.js" charset="UTF-8" type="text/javascript"></script>
+	<link rel="stylesheet" href="./css/d3-context-menu.css" />
+	<script src="js/d3-context-submenu.js" charset="UTF-8" type="text/javascript"></script>
+	<script src="./js/d3-context-menu.js"></script>
+	<script src="js/colors.js" charset="UTF-8" type="text/javascript"></script>
+	<script src="js/handleQueries.js" charset="UTF-8" type="text/javascript"></script>
+	<script src="js/howToUse.js" charset="UTF-8" type="text/javascript"></script>
+	<link href="css/howToUse.css" rel="stylesheet" type="text/css" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="css/menu.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="backgroundMenu">
+	</div>
+	<div class="menu">
+			<button onClick="goToMain()">Reset</button>
+			<select name="cartoSelector" id="cartoSelector" onchange="changeCartoWithSelect()">
+				<option value="./dot/toto.dot">toto.dot</option>
+				<option value="./dot/yoyo.dot">yoyo.dot</option>
+			</select>
+			<button onClick="exportToPNG()">Export</button>
+			<button onClick="openHowToUse()" class="howToUseBtn">?</button>
+		</div>
+		<script>
+			// Call the function to set the selected option on page load
+			setSelectedOptionFromQuery();
+		</script>
+		<div class="searchMenu">
+			<div class="container">
+				<div class="search-container">
+					<input id="searchbox" type="text" onkeyup="filterNames(event)" placeholder="Looking for something?">
+				</div>
+				<ul class="list-container" id="list-container">
+				</ul>
+			</div>
+			<div class="containerFilters" id="containerFilters">
+				<!-- <p>Status</p> -->
+				<select name="statusSelect" class="statusSelect" id="statusSelect" onchange="changeCartoWithSelect()">
+					<option value="all">All</option>
+					<option value="actif">Actif</option>
+					<option value="inactif">Inactif</option>
+					<option value="unknown">Unknown</option>
+					<option value="planned">Planned</option>
+					<option value="inprogress">Inprogress</option>
+					<option value="null">Undefined</option>
+				</select>
+			</div>
+		</div>
+		<div class="howToUse" id="howToUse">
+			<div class="childHowToUse">
+				<h1>How to use this website ?</h1>
+				<p>You can go to the main view by clicking on the <button>Reset Zoom</button> button</p>
+				<p>You can select the graph that you want with the <select>
+						<option>toto.dot</option>
+						<option>yoyo.dot</option>
+					</select> dropdown</p>
+				<p>You can export the current graph with the <button>Export to png</button> button</p>
+				<p>You can get more information with the <button>How to use</button> button</p>
+				<p>You can send a link with a direct choice for the graph file with the query <br>
+					<strong>http://127.0.0.1:5500/?carto=yoyo.dot</strong> <br> or
+					<br> <strong>http://127.0.0.1:5500/?carto=toto.dot</strong> for example.
+					<br> It basically choose the option of the dropdown that match the same text
+				</p>
+				<button onClick="closeHowToUse()">Close</button>
+			</div>
+		</div>
+	<ul id="context-menu" class="context-menu"></ul>
+	<div id="graph" class="graph" style="text-align: center;width:100%;height: 100%;"></div>
+	<video class="loading" id="loading" src="./animation/loading.webm" autoplay loop muted></video>
+	<canvas id="canvasGraphPNG"></canvas>
+	<script src="js/hierarchy.js" type="text/javascript"></script>
+	<script src="js/search.js" charset="UTF-8" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+digraph {
+	rankdir=LR;
+	ranksep=2;
+	nodesep=0.5;
+	splines=ortho;
+	graph [fontname = "helvetica"];
+	node [fontname=helvetica, shape=rect, width=2, fixedsize=true, style=rounded, fontsize=10];
+	edge [fontname = "helvetica", fontsize=10];
+	node1 [style=invis]
+	node2 [style=invis]
+	node3 [style=invis]
+	node4 [style=invis]
+	node1 -> node2 -> node3 -> node4  [style=invis]
+	Patate1 [color="IndianRed", style="rounded, filled", fillcolor=white, label="SmartAtlas", id="189448353"]
+	Patate2 [color="MediumSpringGreen", style="rounded, filled", fillcolor=white, label="DTPF", id="2140869"]
+	Patate3 [color="SpringGreen", style="rounded, filled", fillcolor=white, label="Neo", id="78231"]
+	Patate3 -> Patate2 [color="IndianRed", xlabel="1", data="3d7HgS6zHsfJ=", id="189448353_2140869"]
+	Patate1 -> Patate3 [color="MediumSpringGreen", xlabel="1 / 3 / 10 / 11 / 44", data="W3d4fj5z24d", id="2140869_78231"]
+	Patate2 -> Patate1 [color="SeaGreen", xlabel="3 / 41 / 102", data="0odUJ7g-DG", id="1468873708_2140869"]
+}

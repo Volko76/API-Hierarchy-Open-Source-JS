@@ -1,0 +1,21 @@
+digraph {
+	rankdir=LR;
+	ranksep=2;
+	nodesep=0.5;
+	splines=ortho;
+	graph [fontname = "helvetica"];
+	node [fontname=helvetica, shape=rect, width=2, fixedsize=true, style=rounded, fontsize=10];
+	edge [fontname = "helvetica"];
+	node1 [style=invis]
+	node2 [style=invis]
+	node3 [style=invis]
+	node4 [style=invis]
+	node1 -> node2 -> node3 -> node4  [style=invis]
+	toto [color=PowderBlue, style="rounded, filled", fillcolor=white, label="toto", id="2117739438"]
+	yoyo [color=SaddleBrown, style="rounded, filled", fillcolor=white, label="yoyo", id="755188583"]
+	toto:_ -> yoyo:_ [color=PowderBlue, id="2117739438_755188583"]
+	{rank="min";node1;toto_1;toto_3;toto_2;}
+	{rank="same";node1;yoyo_1;toto_4;toto_6;}
+	{rank="same";node1;yoyo_5;yoyo_3;toto_10;}
+	{rank="max";node1;yoyo_6;toto_22;toto_12;}
+}
